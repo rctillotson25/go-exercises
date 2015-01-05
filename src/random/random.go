@@ -11,7 +11,7 @@ import (
 
 */
 func RandIntN(n int, upper int) []int {
-	rand.Seed(time.Now().UTC().UnixNano())
+	rand.Seed(time.Now().UTC().UnixNano())	
 	arr := make([]int, n)
 
 	for i := 0; i < n; i++ {

@@ -1,9 +1,9 @@
-package merge
+package sorting 
 
 import (
 	"fmt"
 )
 
-func Sort() {
+func MergeSort() {
 	fmt.Println("Merge sort.")
 }

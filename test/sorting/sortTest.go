@@ -1,11 +1,19 @@
 package main
 
 import (
-	"algorithms/sorting/insertion"
-	"algorithms/sorting/merge"
+	"algorithms/sorting"
+	"random"
+	"fmt"
 )
 
+const MAX_VALUE  = 100 
+const NUM_VALUES = 50
 func main() {
-	merge.Sort()
-	insertion.Sort()
+
+	A := random.RandIntN(NUM_VALUES, MAX_VALUE)
+	fmt.Println(A)
+	sorting.MergeSort()
+	insertA := A
+	sorting.InsertionSort(insertA)
+	fmt.Println(A)
 }
