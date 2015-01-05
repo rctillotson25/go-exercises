@@ -1,7 +1,6 @@
 package sorting
 
 import (
-	"fmt"
 	"algorithms/algoutils"
 )
 
@@ -10,13 +9,12 @@ import (
 	Insertion Sorting Algorithm
 	---------------------------
 
-	* Space complexity:
-	* Best-case time: 
-	* Average-case time: 
-	* Worst-case time: N^2
+	* Space complexity: O(n) total - O(1) auxiliary. In place sorting, so no additional space is necessary.
+	* Best-case time: O(n) - occurs when the array is already sorted.
+	* Average-case time: O(n^2)
+	* Worst-case time: O(n^2)
 */
 func InsertionSort(A []int) {
-	fmt.Println("Insertion sort..")
 	for i := 1; i < len(A); i++ {
 		for j := i; j > 0; j--  {
 			if A[j] < A[j-1] {
@@ -24,7 +22,6 @@ func InsertionSort(A []int) {
 			}
 		}
 	}
-	fmt.Println(A)
 }
 
 
