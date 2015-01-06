@@ -9,11 +9,22 @@ import (
 const MAX_VALUE  = 100 
 const NUM_VALUES = 50
 func main() {
+	mergeSortTest()
+	insertionSortTest()
+}
 
-	A := random.RandIntN(NUM_VALUES, MAX_VALUE)
-	fmt.Println(A)
+func mergeSortTest() {
+	a := random.RandIntN(NUM_VALUES, MAX_VALUE)
+	fmt.Println(a)
+	fmt.Println("Running merge sort...")
 	sorting.MergeSort()
-	insertA := A
-	sorting.InsertionSort(insertA)
-	fmt.Println(A)
+	fmt.Println(a)
+}
+
+func insertionSortTest() {
+	a := random.RandIntN(NUM_VALUES, MAX_VALUE)
+	fmt.Println(a)
+	fmt.Println("Running insertion sort...")
+	sorting.InsertionSort(a)
+	fmt.Println(a)
 }
