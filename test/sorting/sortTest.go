@@ -6,8 +6,8 @@ import (
 	"fmt"
 )
 
-const MAX_VALUE  = 100 
-const NUM_VALUES = 50
+const MAX_VALUE  = 100
+const NUM_VALUES = 500000
 func main() {
 	mergeSortTest()
 	insertionSortTest()
@@ -17,7 +17,7 @@ func mergeSortTest() {
 	a := random.RandIntN(NUM_VALUES, MAX_VALUE)
 	fmt.Println(a)
 	fmt.Println("Running merge sort...")
-	sorting.MergeSort()
+	sorting.MergeSort(a)
 	fmt.Println(a)
 }
 
