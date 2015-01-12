@@ -2,12 +2,14 @@ package main
 
 import (
 	"algorithms/sorting"
-	"random"
 	"fmt"
+	"os"
+	"random"
 )
 
-const MAX_VALUE  = 100
-const NUM_VALUES = 500000
+const MAX_VALUE = 100
+const NUM_VALUES = 5000
+
 func main() {
 	mergeSortTest()
 	insertionSortTest()
