@@ -1,8 +1,31 @@
 package sorting
 
 import (
-	"algorithms/algoutils"
+	"utils"
 )
+
+/*
+        ---------------------------
+        Insertion Sorting Algorithm
+        ---------------------------
+
+	* Space complexity: O(n) total - O(1) auxiliary. 
+	In place sorting, so no additional space is necessary.
+	* Best-case time: O(n) - occurs when the array is already sorted.
+	* Average-case time: O(n^2)
+	* Worst-case time: O(n^2)
+
+*/
+func InsertionSort(a []int) []int {
+	for i := 1; i < len(a); i++ {
+		for j := i; j > 0; j-- {
+			if a[j] < a[j-1] {
+				utils.Swap(a, j, j-1)
+			}
+		}
+	}
+	return a
+}
 
 /*
 	---------------------------
@@ -10,11 +33,12 @@ import (
 	---------------------------
 
 	* Space complexity: O(n) total - O(n) auxiliary.
-	* Best-case time: O(n) - occurs when the array is already sorted.
-	* Average-case time: O(n^2)
-	* Worst-case time: O(n^2)
+	* Best-case time: O(nlog(n)) -
+	* Average-case time: O(nlog(n))
+	* Worst-case time: O(nlog(n))
 */
 func MergeSort(a []int) []int {
+
 	// base case
 	if len(a) <= 1 {
 		return a
@@ -23,22 +47,20 @@ func MergeSort(a []int) []int {
 	var left []int
 	var right []int
 
-	left, right = algoutils.Split(a)
+	left, right = utils.Split(a)
 	left = MergeSort(left)
 	right = MergeSort(right)
 	return Merge(left,right)
 }
 
 /*
-	- while i < len(left) and j < len(right)
-	4 scenarios
+	Merge and return 2 slices of integers.
+
+	4 key scenarios
 	1) Values in both left and right to disburse.
 	2) Values in left are gone, right still has values.
 	3) Values in right are gone, left still has values.
 	4) Both left and right have been completely processed.
-
-	There's room for some different ways of doing this.
-	- Maybe reimplement using slices more effectively? left := left[1:]
 */
 func Merge(left []int, right []int) []int {
 	l,r,i := 0,0,0
@@ -64,3 +86,4 @@ func Merge(left []int, right []int) []int {
 	}
 	return arr
 }
+

@@ -1,4 +1,4 @@
-package algoutils
+package utils
 
 import ()
 
@@ -9,10 +9,8 @@ func Swap(a []int, i int, j int) {
 	a[j] = t
 }
 
-/* Split a slice/array into two at the midpoint
-
-   Return left and right slices.
-*/
+// Split a slice/array into two at the midpoint
+// Return left and right slices.
 func Split(a []int) ([]int, []int) {
 	mid := len(a) / 2
 	left := a[:mid]

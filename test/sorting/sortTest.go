@@ -3,8 +3,8 @@ package main
 import (
 	"algorithms/sorting"
 	"fmt"
-	"os"
 	"random"
+	"os"
 )
 
 const MAX_VALUE = 100
