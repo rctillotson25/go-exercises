@@ -2,22 +2,35 @@ package main
 
 import (
 	"fmt"
-	"strconv"
+	"utils"
 )
+
+
+// TODO - Add user input for the reverse string class.
 
 func main() {
 	s := []string{"Apple", "Banana", "Carrot"}
 
 	for i := range s {
-		fmt.Println("String " + strconv.Itoa(i) + ": " + s[i])
+		fmt.Println(i, "- String: \t\t",  s[i])
+		fmt.Println(i, "- Reversed String: \t", reverseString(s[i]))
 	}
 }
 
 func reverseString(s string) string {
-	revstr := make([]byte, len(s))
+	var low int = 0
+	var high int = len(s) - 1
+	var strArr []byte
 
-	fmt.Println(revstr)
-	return s
+	strArr = make([]byte, len(s))
+	copy(strArr, s)
+
+	for low <= high {
+		utils.SwapBytes(&strArr, low, high)
+		low += 1
+		high -= 1
+	}
+	return string(strArr)
 }
 
 
