@@ -3,18 +3,20 @@ package main
 import (
 	"fmt"
 	"utils"
+	"os"
 )
 
 
-// TODO - Add user input for the reverse string class.
+// TODO - Add ability to get strings with spaces in them.
 
 func main() {
-	s := []string{"Apple", "Banana", "Carrot"}
 
-	for i := range s {
-		fmt.Println(i, "- String: \t\t",  s[i])
-		fmt.Println(i, "- Reversed String: \t", reverseString(s[i]))
-	}
+	s := getInput()
+
+	fmt.Println("String: \t\t",  s)
+	fmt.Println("Reversed String: \t", reverseString(s))
+
+	os.Exit(0)
 }
 
 func reverseString(s string) string {
@@ -33,4 +35,16 @@ func reverseString(s string) string {
 	return string(strArr)
 }
 
+func getInput() string {
+	var s string
 
+	fmt.Print("Enter a string to be reversed: ")
+	_, err := fmt.Scanf("%s", &s)
+
+	if err != nil {
+		fmt.Println("There was an error in your input.")
+		os.Exit(1)
+	}
+
+	return s
+}
