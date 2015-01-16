@@ -18,3 +18,19 @@ func Split(a []int) ([]int, []int) {
 
 	return left, right
 }
+
+// Return true if two slices of integers
+// are identical (same order, length, values)
+func Equal(a []int, b []int) bool {
+	
+	if len(a) != len(b) {
+		return false
+	} else {
+		for i := range a {
+			if a[i] != b[i] {
+				return false
+			}
+		}
+	}
+	return true
+}

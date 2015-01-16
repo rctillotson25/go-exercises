@@ -1,60 +1,59 @@
+/*
+   Tests for the sorting class.
+   
+   Note that it would probably be better in practice
+   to keep all of these algorithm tests in separate functions,
+   but this method allows the test to be expanded easily. Plus,
+   being relatively new to Go, I wanted practice with passing 
+   functions as parameters.
+
+   If more data sets are needed, just create a type for holding 
+   multiple sets and and rewrite part of the runTest algorithm to 
+   runTests over all of the data sets instead of just arrOrig.
+*/
+
+// TODO - add some more test cases / a struct for test cases
+// TODO - update runTest algorithm to handle multiple data sets
+
 package sorting
 
 import (
 	"testing"
+	"utils"
 )
 
-// Standard int sorting case 
-var arrOrig = []int{9,7,2,1,4,5,0}
-var arrSorted = []int{0,1,2,4,5,7,9}
+// Standard int sorting case
+var arrOrig = []int{9, 7, 2, 1, 4, 5, 0}
+var arrSorted = []int{0, 1, 2, 4, 5, 7, 9}
 
-// Edge Cases
-// TODO - need to add edge cases later.
+type sortAlg struct {
+	name string
+	alg  func([]int) []int
+}
 
-func TestInsertionSort(t *testing.T) {
+func TestSortingAlgorithms(t *testing.T) {
 
-	// must copy over the array so arrOrig isn't modified. 
+	// slice of algorithms to be tested
+	algs := []sortAlg{
+		{"Insertion Sort", InsertionSort},
+		{"Merge Sort", MergeSort},
+	}
+
+	for i := range algs {
+		runTest(algs[i], t)
+	}
+}
+
+// Run the specified algorithm on the dataset.
+func runTest(a sortAlg, t *testing.T) {
+
+	// initialize new slice for sorting
 	var arr = make([]int, len(arrOrig))
 	copy(arr, arrOrig)
 
-	arr = InsertionSort(arr)
+	arr = a.alg(arr)
 
-	if !compareArrays(arr, arrSorted) {
-		t.Error("Expected: ", arrSorted, " result: ", arr)
-	}
-
-}
-
-
-func TestMergeSort(t *testing.T) {
-
-	var arr = make([]int, len(arrOrig))
-	copy(arr, arrOrig)
-
-	arr = MergeSort(arr)
-
-	if !compareArrays(arr, arrSorted) {
-		t.Error("Expected: ", arrSorted, " result: ", arr)
+	if !utils.Equal(arr, arrSorted) {
+		t.Error("\nAlgorithm: ", a.name, "\nExpected: ", arrSorted, "\nresult: ", arr)
 	}
 }
-
-/*
-   Return true if two arrays (or slices)  of integers
-   are identical (same order, length, values).
-*/
-func compareArrays(a []int, b []int) bool {
-
-	if (len(a) != len(b)) {
-		return false
-	} else {
-		for i := range(a) {
-			if a[i] != b[i] {
-				return false
-			}
-		}
-	}
-	return true
-
-}
-
-
