@@ -14,6 +14,10 @@ func main() {
 }
 
 func reverseString(s string) string {
+	revstr := make([]byte, len(s))
 
+	fmt.Println(revstr)
 	return s
 }
+
+
