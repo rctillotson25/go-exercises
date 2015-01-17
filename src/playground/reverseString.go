@@ -4,10 +4,11 @@ import (
 	"fmt"
 	"utils"
 	"os"
+	"bufio"
 )
 
 
-// TODO - Add ability to get strings with spaces in them.
+// TODO -Improve the trimming of strings so that it doesn't pick up the \n at the end. 
 
 func main() {
 
@@ -37,9 +38,10 @@ func reverseString(s string) string {
 
 func getInput() string {
 	var s string
-
+	
+	console := bufio.NewReader(os.Stdin)
 	fmt.Print("Enter a string to be reversed: ")
-	_, err := fmt.Scanf("%s", &s)
+	s, err := console.ReadString('\n')
 
 	if err != nil {
 		fmt.Println("There was an error in your input.")
