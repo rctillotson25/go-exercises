@@ -1,3 +1,22 @@
+/*
+
+    This module contains several types of sorting algorithms and their space / time complexities.
+
+    Current Status of Algorithms:
+
+    Insertion Sort - Complete
+    Bubble Sort    - Not Started
+    Merge Sort     - Complete
+    Quick Sort     - Not Started
+    Heap Sort      - Not Started
+
+
+    To initialize tests of the algorithms, add the algorithm to sorting_test.go.
+
+*/
+
+
+
 package sorting
 
 import (
@@ -50,7 +69,7 @@ func MergeSort(a []int) []int {
 	left, right = utils.Split(a)
 	left = MergeSort(left)
 	right = MergeSort(right)
-	return Merge(left,right)
+	return merge(left,right)
 }
 
 /*
@@ -62,7 +81,7 @@ func MergeSort(a []int) []int {
 	3) Values in right are gone, left still has values.
 	4) Both left and right have been completely processed.
 */
-func Merge(left []int, right []int) []int {
+func merge(left []int, right []int) []int {
 	l,r,i := 0,0,0
 	arr := make([]int, len(left) + len(right))
 
