@@ -12,9 +12,6 @@
    runTests over all of the data sets instead of just arrOrig.
 */
 
-// TODO - add some more test cases / a struct for test cases
-// TODO - update runTest algorithm to handle multiple data sets
-
 package sorting
 
 import (
@@ -31,9 +28,14 @@ type sortAlg struct {
 	alg  func([]int) []int
 }
 
+type sortData struct {
+	arrOrig []int
+	arrSorted []int
+}
+
 func TestSortingAlgorithms(t *testing.T) {
 
-	// slice of algorithms to be tested
+	// algorithms to be tested
 	algs := []sortAlg{
 		{"Insertion Sort", InsertionSort},
 		{"Merge Sort", MergeSort},
@@ -44,16 +46,25 @@ func TestSortingAlgorithms(t *testing.T) {
 	}
 }
 
-// Run the specified algorithm on the dataset.
+
+
 func runTest(a sortAlg, t *testing.T) {
 
-	// initialize new slice for sorting
-	var arr = make([]int, len(arrOrig))
-	copy(arr, arrOrig)
+	// test cases for algorithms
+	data := []sortData{
+		{[]int{9,7,2,1,4,5,0}, []int{0,1,2,4,5,7,9}},
+		{[]int{}, []int{}},
+	}
 
-	arr = a.alg(arr)
+	for i := range data {
+		// initialize new slice for sorting
+		var arr = make([]int, len(data[i].arrOrig))
+		copy(arr, data[i].arrOrig)
 
-	if !utils.Equal(arr, arrSorted) {
-		t.Error("\nAlgorithm: ", a.name, "\nExpected: ", arrSorted, "\nresult: ", arr)
+		arr = a.alg(arr)
+
+		if !utils.Equal(arr, data[i].arrSorted) {
+			t.Error("\nAlgorithm: ", a.name, "\nExpected: ", data[i].arrSorted, "\nresult: ", arr)
+		}
 	}
 }
