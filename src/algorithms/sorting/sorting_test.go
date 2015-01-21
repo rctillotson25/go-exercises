@@ -19,10 +19,6 @@ import (
 	"utils"
 )
 
-// Standard int sorting case
-var arrOrig = []int{9, 7, 2, 1, 4, 5, 0}
-var arrSorted = []int{0, 1, 2, 4, 5, 7, 9}
-
 type sortAlg struct {
 	name string
 	alg  func([]int) []int
