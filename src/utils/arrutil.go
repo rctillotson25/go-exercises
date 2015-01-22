@@ -1,3 +1,11 @@
+/*
+
+   The functions in this module are
+   used to perform operations on arrays.
+
+   // TODO - Refactor code to specify the types of input parameters in the name.
+
+*/
 package utils
 
 import ()
