@@ -1,21 +1,18 @@
+/*
+
+   This module holds the basic Node type for the data structure.
+   Need to implement different kinds of nodes to place values in them.
+
+   Interface{} is more of a placeholder in this context.
+
+   Authored 1/23/2015 by rctillotson25
+
+*/
+
 package structs
 
-type IntNode struct {
-	intNode *Node
-}
 type Node struct {
+	// every object extends interface{}
 	Value interface{}
 	next  *Node
-}
-
-func NewIntNode() *IntNode {
-	return &IntNode{new(Node)}
-}
-
-func (n *IntNode) SetValue(v int) {
-	n.intNode.Value = v
-}
-
-func (n *IntNode) SetNext(i *IntNode) {
-	n.intNode.next
 }
