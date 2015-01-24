@@ -1,8 +1,20 @@
+/*
+
+
+
+
+
+*/
+
 package searching
 
+import (
+	"testing"
+)
 
-func SearchTest(t *Testing.t
+func SearchTest(t *Testing.t) {
 
+}
 
 
 
