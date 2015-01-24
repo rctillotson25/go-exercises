@@ -6,7 +6,7 @@
 
    Node Type Attributes:
 
-   value interface{}
+   Value interface{}
    next  *Node
 
    Authored 1/23/2015 by rctillotson25
