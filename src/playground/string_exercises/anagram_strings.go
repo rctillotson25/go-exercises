@@ -1,3 +1,12 @@
+/*
+
+   This program will take in two strings and determine
+   if they are anagrams of each other.
+
+   Authored on 1/24/2015 by rctillotson25
+
+*/
+
 package main
 
 import (
@@ -29,6 +38,7 @@ func AreAnagrams(s1 string, s2 string) bool {
 		if i == -1 {
 			return false
 		} else {
+			// s2[:i}+s2[i+1:] returns a new string excluding i
 			return AreAnagrams(s1[1:], s2[:i]+s2[i+1:])
 		}
 	}
