@@ -1,4 +1,8 @@
-
+// This program will determine if numbers are prime or not. 
+// There are several ways of doing this. 
+//
+// Future extension: implement Sieve of Erasthones. :)
+//
 package main;
 
 
